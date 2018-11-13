@@ -1,0 +1,61 @@
+﻿@model IList<Fiap03.Web.MVC.Models.MarcaModel>
+@{
+    ViewBag.Title = "Listar";
+}
+
+<h2>Listar</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Data de Criação</th>
+            <th>CNPJ</th>            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var marca in Model)
+        {
+            <tr>
+                <td>@marca.Nome</td>
+                <td>@marca.DataCriacao</td>
+                <td>@marca.Cnpj</td>                
+                <td>
+                    <!-- Button trigger modal -->
+                    <button onclick="codigoExcluir.value = @marca.Id" type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#exampleModalMarca">
+                        Excluir
+                    </button>
+                    @Html.ActionLink("Editar", "Editar", new { id = marca.Id }, new { @class = "btn btn-outline-dark btn-sm" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="modal fade" id="exampleModalMarca" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Confirmação</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<p>Deseja realmente excluir?</p>
+			</div>
+			<div class="modal-footer">
+				<!--formulário-- URL: /Carro/Excluir - POST> -->
+				@using (Html.BeginForm("Excluir", "Marca"))
+				{
+					<!-- Campo para o ID -->
+					<input type="hidden" name="codigo" id="codigoExcluir" />
+					<button type="button" class="btn btn-primary" data-dismiss="modal">Não</button>
+					<button type="submit" class="btn btn-danger">Sim</button>
+				}
+			</div>
+		</div>
+	</div>
+</div>
+

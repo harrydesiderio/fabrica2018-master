@@ -1,0 +1,90 @@
+﻿@model IList<Fiap03.Web.MVC.Models.CarroModel>
+
+@{
+    ViewBag.Title = "Listar";
+}
+
+
+@Fabrica.Mensagem(TempData["msg"])
+
+<h2>Filtro</h2>
+@using (Html.BeginForm("Pesquisar","Carro",FormMethod.Get))
+{
+    <div class="row">
+        <div class="col">
+            <select name="ano" class="form-control">
+                <option value="0">Selecione</option>
+                @for (var i = DateTime.Now.Year + 2; i >= 1980; i--)
+                {
+                    <option>@i</option>
+                }
+            </select>       
+        </div>
+        <div class="col">
+            <button class="btn btn-success" type="submit">Buscar</button>
+        </div>
+        <div class="col"></div>
+    </div>
+}
+
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>Marca</th>
+            <th>Ano</th>
+            <th>Esportivo</th>
+            <th>Placa</th>
+            <th>Descrição</th>
+            <th>Combustível </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var carro in Model)
+        {
+            <tr>
+                <td>@carro.Marca</td>
+                <td>@carro.Ano</td>
+                <td>@carro.Esportivo</td>
+                <td>@carro.Placa</td>
+                <td>@carro.Descricao</td>
+                <td>@carro.Combustivel</td>
+                <td>
+                    <!-- Button trigger modal -->
+                    <button onclick="codigoExcluir.value = @carro.Id" type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#exampleModal">
+                        Excluir
+                    </button>
+                    @Html.ActionLink("Editar","Editar", new { id = carro.Id }, new { @class = "btn btn-outline-dark btn-sm" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Confirmação</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Deseja realmente excluir?</p>
+            </div>
+            <div class="modal-footer">                
+                <!--formulário-- URL: /Carro/Excluir - POST> -->
+                @using (Html.BeginForm("Excluir","Carro"))
+                {
+                    <!-- Campo para o ID -->
+                    <input type="hidden" name="codigo" id="codigoExcluir"/>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Não</button>
+                    <button type="submit" class="btn btn-danger">Sim</button>
+                }
+            </div>
+        </div>
+    </div>
+</div>

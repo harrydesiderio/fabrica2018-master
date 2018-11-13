@@ -1,0 +1,55 @@
+﻿@model Fiap03.Web.MVC.Models.CarroModel
+
+@{
+    ViewBag.Title = "Cadastrar";    
+}
+
+<h2>Cadastrar</h2>
+
+@Fabrica.Mensagem(TempData["mensagem"])
+
+<!-- Comentário HTML -->
+
+@* Comentário C# *@
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.LabelFor(c => c.Marca)
+        @Html.DropDownListFor(c => c.Marca, 
+            ViewBag.marcas as SelectList,
+            "Selecione",
+            new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(c => c.Combustivel)
+        @Html.EnumDropDownListFor(c => c.Combustivel,
+            "Selecione",
+            new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(c => c.Ano)
+        @Html.TextBoxFor(c => c.Ano, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(carro => carro.Placa)
+        @Html.TextBoxFor(c => c.Placa,
+            new { placeholder = "Digite a placa",
+                  @class = "form-control"})        
+    </div>
+    <div class="form-group">
+        @Html.CheckBoxFor(c => c.Esportivo)
+        @Html.LabelFor(c => c.Esportivo)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(c => c.Descricao)
+        @Html.TextAreaFor(c => c.Descricao, new { @class = "form-control" })
+    </div>
+    @Fabrica.Botao("Cadastrar")
+    @Html.ActionLink("Listar","Listar",
+        null, new { @class = "btn btn-default"})
+}
+
+@section scripts{
+    <p>Exemplo de Section</p>
+}

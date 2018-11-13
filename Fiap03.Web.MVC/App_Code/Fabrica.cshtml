@@ -1,0 +1,17 @@
+﻿@helper Botao(string texto)
+{
+    <button type="submit" class="btn btn-primary">@texto</button>
+}
+
+@helper Botao(string texto, string classe)
+{
+    <button type="submit" class="@classe">@texto</button>
+}
+
+@helper Mensagem(object msg)
+{
+    if (msg != null)
+    {
+        <div class="alert alert-success">@msg</div>   
+    }
+}

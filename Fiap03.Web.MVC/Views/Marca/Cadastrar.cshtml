@@ -1,0 +1,34 @@
+﻿@model Fiap03.Web.MVC.Models.MarcaModel
+@{
+    ViewBag.Title = "Cadastrar";
+}
+
+@Fabrica.Mensagem(TempData["msg"])
+
+<h2>Cadastrar Marca</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.LabelFor(c => c.Nome)
+        @Html.DropDownListFor(c => c.Nome,
+            ViewBag.nomes as SelectList,
+            "Selecione",
+            new { @class = "form-control" })
+    </div>
+   
+    <div class="form-group">
+        @Html.LabelFor(c => c.DataCriacao)
+        @Html.TextBoxFor(c => c.DataCriacao, "hh:mm dd/MM/yyyy", new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(carro => carro.Cnpj)
+        @Html.TextBoxFor(c => c.Cnpj,
+            new { placeholder = "Digite o CNPJ",
+                  @class = "form-control"})
+    </div>
+   
+    @Fabrica.Botao("Cadastrar")
+    @Html.ActionLink("Listar","Listar",
+        null, new { @class = "btn btn-default"})
+}

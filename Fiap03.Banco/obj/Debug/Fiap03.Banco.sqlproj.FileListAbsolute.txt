@@ -1,0 +1,11 @@
+D:\fabrica2018-master\Fiap03.Web.MVC\Fiap03.Banco\bin\Debug\Fiap03.Banco.dacpac
+D:\fabrica2018-master\Fiap03.Web.MVC\Fiap03.Banco\bin\Debug\Fiap03.Banco.dll
+D:\fabrica2018-master\Fiap03.Web.MVC\Fiap03.Banco\bin\Debug\Fiap03.Banco.pdb
+D:\fabrica2018-master\Fiap03.Web.MVC\Fiap03.Banco\obj\Debug\Fiap03.Banco.dll
+D:\fabrica2018-master\Fiap03.Web.MVC\Fiap03.Banco\obj\Debug\Fiap03.Banco.pdb
+C:\Users\rafael.desiderio\Desktop\fabrica2018-master\Fiap03.Web.MVC\Fiap03.Banco\bin\Debug\Fiap03.Banco.dacpac
+C:\Users\rafael.desiderio\Desktop\fabrica2018-master\Fiap03.Web.MVC\Fiap03.Banco\bin\Debug\Fiap03.Banco.dll
+C:\Users\rafael.desiderio\Desktop\fabrica2018-master\Fiap03.Web.MVC\Fiap03.Banco\bin\Debug\Fiap03.Banco.pdb
+C:\Users\rafael.desiderio\Desktop\fabrica2018-master\Fiap03.Web.MVC\Fiap03.Banco\obj\Debug\Fiap03.Banco.sqlprojAssemblyReference.cache
+C:\Users\rafael.desiderio\Desktop\fabrica2018-master\Fiap03.Web.MVC\Fiap03.Banco\obj\Debug\Fiap03.Banco.dll
+C:\Users\rafael.desiderio\Desktop\fabrica2018-master\Fiap03.Web.MVC\Fiap03.Banco\obj\Debug\Fiap03.Banco.pdb
